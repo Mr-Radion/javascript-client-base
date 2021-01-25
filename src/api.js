@@ -5,11 +5,10 @@
 //  });
 // }
 
-// (function getUsers() {
-//   fetch('https://jsonplaceholder.typicode.com/users')
-//     .then((response) => response.json())
-//     .then((res) => console.log(res.map((elem) => `${elem.id} ${elem.name} ${elem.email}`)));
-// })();
+export function getUsers() {
+  const data = fetch('https://jsonplaceholder.typicode.com/users');
+  return data.then((response) => response.json());
+}
 
 // (function createNewUser(data) {
 //   fetch('https://jsonplaceholder.typicode.com/users', {

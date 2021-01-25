@@ -1,0 +1,29 @@
+{
+  "name": "javascript-todo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "parcel-bundler": "^1.12.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "parcel ./src/index.html -p 5500 --open",
+    "build": "parcel build ./src/index.html --no-source-maps",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mr-Radion/javascript-todo.git"
+  },
+  "keywords": [
+    "todo",
+    "javascript-todo"
+  ],
+  "author": "Mr.Radion",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mr-Radion/javascript-todo/issues"
+  },
+  "homepage": "https://github.com/Mr-Radion/javascript-todo#readme"
+}
