@@ -1,7 +1,11 @@
 export function row(content) {
-  return `<div class="row">${[...Object.values(content)].join('')}</div>`;
+  return `<tr>${[...Object.values(content)].join('')}</tr>`;
+}
+
+export function tableHead(content) {
+  return `<th>${content}</th>`;
 }
 
 export function col(content) {
-  return `<div class="col">${content}</div>`;
+  return `<td>${content}</td>`;
 }
