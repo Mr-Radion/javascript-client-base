@@ -49,6 +49,12 @@ tr {
   background-color: rgba(0, 0, 0, 0.05);
 }
 
+tbody > tr:hover {
+  background-color: #ececec !important;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
 th {
   border-bottom-width: 2px;
   vertical-align: bottom;
@@ -62,6 +68,20 @@ th {
 th,
 td {
   border: 1px solid #dee2e6;
+}
+
+td:last-child,
+td:nth-last-child(2) {
+  text-align: center;
+}
+
+a {
+  cursor: pointer;
+}
+
+a:hover {
+  color: #017eff;
+  /* font-weight: bold; */
 }
 
 /* .table > tbody > td:hover {

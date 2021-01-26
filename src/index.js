@@ -1,11 +1,9 @@
 import { getUsers, createNewUser, editUser, deleteUser } from './api';
 import { row, col } from './utils';
-import { thead, tbody } from './templates';
+import { thead, tbody, editIcon, removeIcon } from './templates';
 
 const $table = document.querySelector('.table');
-$table.insertAdjacentHTML('beforeend', thead);
-$table.insertAdjacentHTML('beforeend', tbody);
-let $tbody = $table.lastChild;
+const $buttonAdd = document.querySelector('.button-add');
 
 // Receiving data from the server and displaying it in a table
 let usersRecevied = getUsers()
@@ -13,12 +11,19 @@ let usersRecevied = getUsers()
   .catch((error) => console.log(error));
 
 function onUsersRender(result) {
+  $table.insertAdjacentHTML('beforeend', thead);
+  $table.insertAdjacentHTML('beforeend', tbody);
+  let $tbody = $table.lastChild;
+
   result
     ? result.forEach((el) => {
         let id = col(el.id);
         let name = col(el.name);
         let email = col(el.email);
-        let rows = row({ id, name, email });
+        let buttonEdit = col(`<a>${editIcon}</a>`);
+        let buttonRemove = col(`<a>${removeIcon}</a>`);
+
+        let rows = row({ id, name, email, buttonEdit, buttonRemove });
         $tbody.insertAdjacentHTML('beforeend', rows);
       })
     : '';
@@ -31,3 +36,5 @@ function onUsersRender(result) {
 // Client data saving function
 
 // Function for removing a customer from a table
+
+function onUserDelete() {}
