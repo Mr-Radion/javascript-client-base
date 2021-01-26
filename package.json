@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "node-forge": "^0.10.0",
     "parcel-bundler": "^1.12.4"
   },
   "devDependencies": {},
