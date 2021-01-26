@@ -5,7 +5,7 @@
 - JavaScript (module, promise, fetch api)
 - Parcel
 - HTML
-- CSS
+- CSS (transition, media queries)
 
 #### Available Scripts<br />
 In the project directory, you can run:
