@@ -1,13 +1,16 @@
-import { getUsers } from './api';
+import { getUsers, createNewUser, editUser, deleteUser } from './api';
+import { row, col } from './utils';
 
 const $table = document.querySelector('.table');
 
-let users = getUsers().then((res) => console.log(res));
+getUsers().then((res) => onUsersRecevied(res));
 
-// users;
-
-// let result = '';
-
-// for (let [name, value] of result) {
-//   alert(`${name} = ${value}`);
-// }
+function onUsersRecevied(result) {
+  result.forEach((el) => {
+    let id = col(el.id);
+    let name = col(el.name);
+    let email = col(el.email);
+    let html = row({id, name, email});
+    $table.insertAdjacentHTML('beforeend', html);
+  });
+}
