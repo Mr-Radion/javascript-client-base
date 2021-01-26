@@ -1,6 +1,6 @@
 .table {
-  width: fit-content; 
-  margin-top: 15px; 
+  width: fit-content;
+  margin-top: 15px;
 }
 
 .row {
@@ -8,12 +8,59 @@
   height: 100%;
 }
 
-.col, a {
+.col,
+a {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50px;    
+  height: 50px;
   width: 150px;
   border: 1px solid black;
   align-self: center;
 }
+
+.col:nth-child(1) {
+  width: 50px;
+}
+
+.button-add {
+  color: #fff;
+  background-color: #f50057;
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+  padding: 6px 16px;
+  font-size: 0.875rem;
+  min-width: 64px;
+  box-sizing: border-box;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-weight: 500;
+  line-height: 1.75;
+  border-radius: 4px;
+  letter-spacing: 0.02857em;
+  text-transform: uppercase;
+  border: 0;
+  cursor: pointer;
+  margin: 0;
+  outline: 0;
+  position: relative;
+  align-items: center;
+  user-select: none;
+  -moz-appearance: none;
+  text-decoration: none;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.button-add:hover {
+  text-decoration: none;
+  background-color: rgba(0, 0, 0, 1);
+}
+
+.button-add:active {
+  box-shadow: 0 0 0 0.1rem rgba(0, 0, 0, 1);
+  background-color: #000;
+  border-color: #000;
+}
+
