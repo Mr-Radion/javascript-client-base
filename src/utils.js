@@ -11,5 +11,5 @@ export function col(content) {
 }
 
 export function link(content) {
-  `<a>${content}</a>`;
+  return `<a>${content}</a>`;
 }

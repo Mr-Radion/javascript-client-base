@@ -5,20 +5,12 @@ import { thead, tbody, buttonEdit, buttonRemove } from './templates';
 const $table = document.querySelector('.table');
 const $buttonAdd = document.querySelector('.button-add');
 
-let data = Map();
-
-createNewUser();
-
-$buttonAdd.addEventListener('click', () => {
-  let rows = row({ id, userName, email, buttonEdit, buttonRemove });
-  $table.lastChild.insertAdjacentHTML('beforeend', rows);
-  // data
-});
+// let data = Map();
 
 // Receiving data from the server and displaying it in a table
-// let usersRecevied = getUsers()
-//   .then(onUsersRender)
-//   .catch((error) => console.log(error));
+let usersRecevied = getUsers()
+  .then(onUsersRender)
+  .catch((error) => console.log(error));
 
 function onUsersRender(user) {
   $table.insertAdjacentHTML('beforeend', thead);
@@ -44,10 +36,24 @@ function onUsersRender(user) {
 
 // Function for adding a client to a table
 
+$buttonAdd.addEventListener('click', () => {
+  let [id, userName, email] = [col(''), col(''), col('')];
+  let rows = row({ id, userName, email, buttonEdit, buttonRemove });
+  $table.lastChild.insertAdjacentHTML('beforeend', rows);
+  // data
+});
+
 // Table row editing function
 
 // Client data saving function
 
 // Function for removing a customer from a table
+
+$buttonAdd.addEventListener('click', () => {
+  let [id, userName, email] = [col(''), col(''), col('')];
+  let rows = row({ id, userName, email, buttonEdit, buttonRemove });
+  $table.lastChild.insertAdjacentHTML('beforeend', rows);
+  // data
+});
 
 function onUserDelete() {}
