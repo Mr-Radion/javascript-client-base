@@ -1,29 +1,42 @@
 import { getUsers, createNewUser, editUser, deleteUser } from './api';
-import { row, col } from './utils';
-import { thead, tbody, editIcon, removeIcon } from './templates';
+import { row, col, link } from './utils';
+import { thead, tbody, buttonEdit, buttonRemove } from './templates';
 
 const $table = document.querySelector('.table');
 const $buttonAdd = document.querySelector('.button-add');
 
-// Receiving data from the server and displaying it in a table
-let usersRecevied = getUsers()
-  .then((res) => onUsersRender(res))
-  .catch((error) => console.log(error));
+let data = Map();
 
-function onUsersRender(result) {
+createNewUser();
+
+$buttonAdd.addEventListener('click', () => {
+  let rows = row({ id, userName, email, buttonEdit, buttonRemove });
+  $table.lastChild.insertAdjacentHTML('beforeend', rows);
+  // data
+});
+
+// Receiving data from the server and displaying it in a table
+// let usersRecevied = getUsers()
+//   .then(onUsersRender)
+//   .catch((error) => console.log(error));
+
+function onUsersRender(user) {
   $table.insertAdjacentHTML('beforeend', thead);
   $table.insertAdjacentHTML('beforeend', tbody);
   let $tbody = $table.lastChild;
 
-  result
-    ? result.forEach((el) => {
-        let id = col(el.id);
-        let name = col(el.name);
-        let email = col(el.email);
-        let buttonEdit = col(`<a>${editIcon}</a>`);
-        let buttonRemove = col(`<a>${removeIcon}</a>`);
+  // getUsers()
+  //   .then((res) => { res.forEach(element => {
 
-        let rows = row({ id, name, email, buttonEdit, buttonRemove });
+  //   }); })
+  //   .catch((error) => console.log(error));
+
+  user
+    ? user.forEach((el) => {
+        let id = col(el.id);
+        let userName = col(el.name);
+        let email = col(el.email);
+        let rows = row({ id, userName, email, buttonEdit, buttonRemove });
         $tbody.insertAdjacentHTML('beforeend', rows);
       })
     : '';
