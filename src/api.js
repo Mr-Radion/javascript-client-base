@@ -1,10 +1,10 @@
 export function getUsers() {
-  const data = fetch('https://jsonplaceholder.typicode.com/users');
-  return data.then((response) => response.json());
+  const fetchPromice = fetch('https://jsonplaceholder.typicode.com/users?widgetid="242242"');
+  return fetchPromice.then((response) => response.json());
 }
 
 export function createNewUser(data) {
-  fetch('https://jsonplaceholder.typicode.com/users', {
+  fetch('https://jsonplaceholder.typicode.com/users?widgetid="242242"', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json;charset=utf-8',
@@ -13,7 +13,7 @@ export function createNewUser(data) {
   })
     .then((response) => response.json())
     .then((res) => console.log(res));
-};
+}
 
 export function editUser(data) {
   fetch(`https://jsonplaceholder.typicode.com/users/${data.id}`, {
@@ -25,12 +25,11 @@ export function editUser(data) {
   })
     .then((response) => response.json())
     .then((res) => console.log(res));
-};
+}
 
 export function deleteUser(id) {
-  fetch(`https://jsonplaceholder.typicode.com/users/${id}`, {
+  const fetchPromice = fetch(`https://jsonplaceholder.typicode.com/users/${id}`, {
     method: 'DELETE',
-  })
-    .then((response) => response.json())
-    .then((res) => console.log(res));
-};
+  });
+  return fetchPromice.then((response) => response.json());
+}

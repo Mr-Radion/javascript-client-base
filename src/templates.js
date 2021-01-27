@@ -11,8 +11,8 @@ export const thead = `<thead>${row({
 
 export const tbody = `<tbody></tbody>`;
 
-export const buttonEdit = col(link(editIcon));
+export const buttonEdit = link(editIcon);
 
-export const buttonRemove = col(link(removeIcon));
+export const buttonTemplateRemove = link(removeIcon);
 
-export const buttonSave = col(link(saveIcon));
+export const buttonSave = link(saveIcon);
