@@ -9,3 +9,7 @@ export function tableHead(content) {
 export function col(content) {
   return `<td>${content}</td>`;
 }
+
+export function link(content) {
+  `<a>${content}</a>`;
+}
