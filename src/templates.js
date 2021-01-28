@@ -1,18 +1,15 @@
-import { row, tableHead, col, link } from './utils';
-import { editIcon, removeIcon, saveIcon } from './static';
+import { thead, row, thItem, link, button } from './utils';
+import { editIcon } from './static';
 
-export const thead = `<thead>${row({
-  id: tableHead('#'),
-  name: tableHead('Username'),
-  email: tableHead('Email'),
-  edit: tableHead(''),
-  remove: tableHead(''),
-})}</thead>`;
-
-export const tbody = `<tbody></tbody>`;
-
-export const buttonEdit = link(editIcon);
-
-export const buttonTemplateRemove = link(removeIcon);
-
-export const buttonSave = link(saveIcon);
+export const tableHead = () => {
+  const rowItem = row({
+    id: thItem('#'),
+    name: thItem('Username'),
+    email: thItem('Email'),
+    edit: thItem(''),
+    remove: thItem(''),
+  });
+  return thead({ rowItem });
+};
+// export const buttonSave = link({ saveIcon });
+// export const buttonAdd = button('Добавить клиента', 'button-add');

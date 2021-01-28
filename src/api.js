@@ -4,27 +4,25 @@ export function getUsers() {
 }
 
 export function createNewUser(data) {
-  fetch('https://jsonplaceholder.typicode.com/users?widgetid="242242"', {
+  const fetchPromice = fetch('https://jsonplaceholder.typicode.com/users?widgetid="242242"', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json;charset=utf-8',
     },
     body: JSON.stringify(data),
-  })
-    .then((response) => response.json())
-    .then((res) => console.log(res));
+  });
+  return fetchPromice.then((response) => response.json());
 }
 
 export function editUser(data) {
-  fetch(`https://jsonplaceholder.typicode.com/users/${data.id}`, {
+  const fetchPromice = fetch(`https://jsonplaceholder.typicode.com/users/${data.id}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json;charset=utf-8',
     },
     body: JSON.stringify(data),
-  })
-    .then((response) => response.json())
-    .then((res) => console.log(res));
+  });
+  return fetchPromice.then((response) => response.json());
 }
 
 export function deleteUser(id) {
