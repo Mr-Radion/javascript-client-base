@@ -14,9 +14,6 @@ const objectToArray = (content) => [...Object.values(content)];
 export function table(content) {
   let table = document.createElement('table');
   table.className = 'table table-striped';
-
-  console.log(content);
-
   if (content) {
     let item = objectToArray(content);
     item.forEach((elem) => table.appendChild(elem));

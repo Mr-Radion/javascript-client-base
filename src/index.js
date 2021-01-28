@@ -26,14 +26,14 @@ function onUsersRender(users) {
         let id = col(user.id);
         let userName = col(user.name);
         let email = col(user.email);
-        let buttonEdit = link(editIcon);
-        let editTd = col(buttonEdit);
+        let editLink = link(editIcon);
+        let editTd = col(editLink);
         let removeLink = link(removeIcon);
         let removeTd = col(removeLink);
         let rows = row({ id, userName, email, editTd, removeTd });
         body.appendChild(rows);
 
-        // buttonEdit.addEventListener('click', (e) => runUserEdit.call($editLink, e, user.id));
+        // editLink.addEventListener('click', (e) => runUserEdit.call($editLink, e, user.id));
         removeLink.addEventListener('click', (e) => runUserDelete.call(removeLink, e, user.id));
       })
     : '';
@@ -42,51 +42,27 @@ function onUsersRender(users) {
 // Function for adding a client to a table
 
 buttonAdd.addEventListener('click', () => {
-  $table.insertAdjacentHTML('beforeend', thead);
-  $table.insertAdjacentHTML('beforeend', tbody);
-  let $tbody = $table.lastChild;
+  const $tbody = $container.querySelector('tbody');
+  let counter = Number($tbody.querySelectorAll('tr:last-child td:first-child')[0].textContent) + 1;
 
-  let $rows = document.createElement('tr');
+  let editLink = link(editIcon);
+  let editTd = col(editLink);
+  let removeLink = link(removeIcon);
+  let removeTd = col(removeLink);
+  let [id, userName, email] = [col(counter), col(''), col('')];
+  let rows = row({ id, userName, email, editTd, removeTd });
+  $tbody.appendChild(rows);
 
-  let $idTd = document.createElement('td');
-  $idTd.insertAdjacentHTML('beforeend', counter);
-  let $userTd = document.createElement('td');
-  $userTd.insertAdjacentHTML('beforeend', '');
-  let $emailTd = document.createElement('td');
-  $emailTd.insertAdjacentHTML('beforeend', '');
-
-  let $removeTd = document.createElement('td');
-  let $removeLink = document.createElement('a');
-  $removeLink.insertAdjacentHTML('beforeend', removeIcon);
-  $removeTd.appendChild($removeLink);
-
-  let $editTd = document.createElement('td');
-  let $editLink = document.createElement('a');
-  $editLink.insertAdjacentHTML('beforeend', editIcon);
-  $editTd.appendChild($editLink);
-
-  $rows.appendChild($idTd);
-  $rows.appendChild($userTd);
-  $rows.appendChild($emailTd);
-  $rows.appendChild($editTd);
-  $rows.appendChild($removeTd);
-  $tbody.appendChild($rows);
-
-  // buttonCustomRemove.addEventListener('click', runUserDelete);
-  let counter =
-    Number(Object.values($table.lastChild.lastElementChild.children)[0].textContent) + 1;
-  // let [id, userName, email] = [col(counter), col(''), col('')];
-  // let rows = row({ id, userName, email });
-  // $table.lastChild.insertAdjacentHTML('beforeend', rows);
-  // <input autofocus/>
-  // <input />.focus()
-  // data
+  removeLink.addEventListener('click', runUserDelete);
 });
 
 // Table row editing function
 
 function runUserEdit(e, id) {
   e.preventDefault();
+  // <input autofocus/>
+  // <input />.focus()
+
   // let input = document.createElement('input');
   // input.className = 'input';
   // input.value = this.firstElementChild.innerHTML;
