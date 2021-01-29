@@ -58,7 +58,6 @@ buttonAdd.addEventListener('click', () => {
 // Table row editing function
 
 function runUserEdit() {
-  console.log(1);
   const [col1, col2] = [this.closest('tr').children[1], this.closest('tr').children[2]];
   const [input1, input2] = [input(col1.textContent), input(col2.textContent)];
   [input1.className, input2.className] = ['input-basic', 'input-basic'];
@@ -75,7 +74,6 @@ function runUserEdit() {
 // Client data saving function
 
 function runSaveUserData() {
-  console.log(2);
   const row = this.closest('tr');
   let input1 = row.children[1].firstChild;
   let input2 = row.children[2].firstChild;
