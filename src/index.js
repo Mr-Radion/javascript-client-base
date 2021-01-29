@@ -43,9 +43,9 @@ buttonAdd.addEventListener('click', () => {
   const $tbody = $container.querySelector('tbody');
   let counter = Number($tbody.querySelectorAll('tr:last-child td:first-child')[0].textContent) + 1;
 
-  let editLink = div(image('./images/edit_icon.svg'), 'block-icon');
+  let editLink = div('block-icon edit-icon');
   let editTd = col(editLink);
-  let removeLink = div(image('./images/remove_icon.svg'), 'block-icon');
+  let removeLink = div('block-icon remove-icon');
   let removeTd = col(removeLink);
   let [id, userName, email] = [col(counter), col(''), col('')];
   let rows = row({ id, userName, email, editTd, removeTd });

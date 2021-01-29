@@ -79,10 +79,8 @@ td:nth-last-child(2) {
 }
 
 td {
-  width: fit-content;
-  /* display: flex; */
-  justify-content: center;
-  align-items: center;  
+  /* width: fit-content; */
+  position: relative;
 }
 
 a {
@@ -91,12 +89,7 @@ a {
 
 a:hover {
   color: #017eff;
-  /* font-weight: bold; */
 }
-
-/* .table > tbody > td:hover {
-  background-color: ;
-} */
 
 .button-add {
   position: absolute;
@@ -154,9 +147,7 @@ a:hover {
 }
 
 .block-icon {
-  /* display: flex;
-  justify-content: center;
-  align-items: center;   */
+  margin: 0 auto;
   cursor: pointer;
   width: 24px;
   height: 24px;
@@ -165,6 +156,11 @@ a:hover {
 .input-basic {
   border: none;
   outline: 2px solid #dee2e6;
+  position: absolute;
+  /* flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: 100%; */
+  /* width: 100% !important */
 }
 
 @media (min-width: 576px) {

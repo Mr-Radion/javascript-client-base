@@ -2,7 +2,7 @@
 
 const objectToArray = (content) => [...Object.values(content)];
 
-// domLibrary(selector, content) {}
+// domLibrary(selector, type, content) {}
 
 // const onRenderItem = (content) => {
 //   if (typeof content === Object) {
@@ -121,4 +121,3 @@ export function image(link) {
   return img;
 }
 
-console.log(col(div('save-icon', 'dw')));
