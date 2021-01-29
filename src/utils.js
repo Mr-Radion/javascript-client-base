@@ -2,6 +2,8 @@
 
 const objectToArray = (content) => [...Object.values(content)];
 
+// domLibrary(selector, content) {}
+
 // const onRenderItem = (content) => {
 //   if (typeof content === Object) {
 //     let item = [...Object.values(content)];
@@ -12,7 +14,7 @@ const objectToArray = (content) => [...Object.values(content)];
 // };
 
 export function table(content) {
-  let table = document.createElement('table');
+  const table = document.createElement('table');
   table.className = 'table table-striped';
   if (content) {
     let item = objectToArray(content);
@@ -22,7 +24,7 @@ export function table(content) {
 }
 
 export function thead(content) {
-  let thead = document.createElement('thead');
+  const thead = document.createElement('thead');
   if (content) {
     let item = objectToArray(content);
     item.forEach((elem) => thead.appendChild(elem));
@@ -31,7 +33,7 @@ export function thead(content) {
 }
 
 export function tbody(content) {
-  let tbody = document.createElement('tbody');
+  const tbody = document.createElement('tbody');
   if (content) {
     let item = objectToArray(content);
     item.forEach((elem) => tbody.appendChild(elem));
@@ -40,7 +42,7 @@ export function tbody(content) {
 }
 
 export function row(content) {
-  let row = document.createElement('tr');
+  const row = document.createElement('tr');
   if (content) {
     let item = objectToArray(content);
     item.forEach((elem) => row.appendChild(elem));
@@ -49,7 +51,7 @@ export function row(content) {
 }
 
 export function thItem(content) {
-  let thItem = document.createElement('th');
+  const thItem = document.createElement('th');
   if (content) {
     let item = [...Object.values(content)].join('');
     thItem.insertAdjacentHTML('beforeend', item);
@@ -58,19 +60,35 @@ export function thItem(content) {
 }
 
 export function col(content) {
-  let col = document.createElement('td');
+  const col = document.createElement('td');
   if (content) {
     if (typeof content === 'object') {
       let item = content;
       col.appendChild(item);
+    } else {
+      col.insertAdjacentHTML('beforeend', content);
     }
-    col.insertAdjacentHTML('beforeend', content);
   }
   return col;
 }
 
-export function link(content) {
-  let link = document.createElement('a');
+export function div(style, content) {
+  const div = document.createElement('div');
+  div.className = style;
+  if (content) {
+    if (typeof content === 'object') {
+      let item = content;
+      div.appendChild(item);
+    } else {
+      div.insertAdjacentHTML('beforeend', content);
+    }
+  }
+  return div;
+}
+
+export function link(content, style) {
+  const link = document.createElement('a');
+  link.className = style;
   if (content) {
     link.insertAdjacentHTML('beforeend', content);
   }
@@ -78,10 +96,29 @@ export function link(content) {
 }
 
 export function button(content, style) {
-  let button = document.createElement('button');
+  const button = document.createElement('button');
   button.className = style;
   if (content) {
     button.insertAdjacentHTML('beforeend', content);
   }
   return button;
 }
+
+export function input(content, style) {
+  const input = document.createElement('input');
+  input.className = style;
+  if (content) {
+    input.value = content;
+  }
+  return input;
+}
+
+export function image(link) {
+  const img = document.createElement('img');
+  if (link) {
+    img.src = link;
+  }
+  return img;
+}
+
+console.log(col(div('save-icon', 'dw')));

@@ -1,5 +1,4 @@
-import { thead, row, thItem, link, button } from './utils';
-import { editIcon } from './static';
+import { thead, row, thItem } from './utils';
 
 export const tableHead = () => {
   const rowItem = row({
@@ -11,5 +10,3 @@ export const tableHead = () => {
   });
   return thead({ rowItem });
 };
-// export const buttonSave = link({ saveIcon });
-// export const buttonAdd = button('Добавить клиента', 'button-add');
